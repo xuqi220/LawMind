@@ -1,1 +1,1 @@
-# TinyLawLLM
+# LawMind

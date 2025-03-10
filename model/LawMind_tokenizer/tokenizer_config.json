@@ -1,0 +1,43 @@
+{
+    "add_bos_token": false,
+    "add_eos_token": false,
+    "add_prefix_space": false,
+    "added_tokens_decoder": {
+        "0": {
+            "content": "<｜UNK｜>",
+            "lstrip": false,
+            "normalized": false,
+            "rstrip": false,
+            "single_word": false,
+            "special": true
+        },
+        "1": {
+            "content": "<｜begin▁of▁sentence｜>",
+            "lstrip": false,
+            "normalized": false,
+            "rstrip": false,
+            "single_word": false,
+            "special": true
+        },
+        "2": {
+            "content": "<｜end▁of▁sentence｜>",
+            "lstrip": false,
+            "normalized": false,
+            "rstrip": false,
+            "single_word": false,
+            "special": true
+        }
+    },
+    "additional_special_tokens": [],
+    "bos_token": "<｜begin▁of▁sentence｜>",
+    "clean_up_tokenization_spaces": false,
+    "eos_token": "<｜end▁of▁sentence｜>",
+    "legacy": true,
+    "model_max_length": 32768,
+    "pad_token": "<｜UNK｜>",
+    "sp_model_kwargs": {},
+    "spaces_between_special_tokens": false,
+    "tokenizer_class": "PreTrainedTokenizerFast",
+    "unk_token": "<｜UNK｜>",
+    "chat_template": "{% if messages[0]['role'] == 'system' %}{% set system_message = messages[0]['content'] %}{{ '<｜begin▁of▁sentence｜>system\\n' + system_message + '<｜end▁of▁sentence｜>\\n' }}{% else %}{{ '<｜begin▁of▁sentence｜>system\\n你是 LawMind，是一个有用的人工智能助手。<｜end▁of▁sentence｜>\\n' }}{% endif %}{% for message in messages %}{% set content = message['content'] %}{% if message['role'] == 'user' %}{{ '<｜begin▁of▁sentence｜>user\\n' + content + '<｜end▁of▁sentence｜>\\n<｜begin▁of▁sentence｜>assistant\\n' }}{% elif message['role'] == 'assistant' %}{{ content + '<｜end▁of▁sentence｜>' + '\\n' }}{% endif %}{% endfor %}"
+}
